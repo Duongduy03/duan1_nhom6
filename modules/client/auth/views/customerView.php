@@ -325,7 +325,7 @@
                             <a href="?role=client" class="header__nav--item--link">Trang chủ</a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--item--link">Phòng</a>
+                            <a href="?role=client&mod=phong" class="header__nav--item--link">Phòng</a>
                         </li>
                         <li class="header__nav--item">
                             <a href="#" class="header__nav--item--link">Tin tức</a>

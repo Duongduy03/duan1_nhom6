@@ -1,11 +1,7 @@
 
 
 
-<?php
 
-// $user = get_auth();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -333,7 +329,7 @@
                             <a href="?role=client&mod=home" class="header__nav--item--link">Trang chủ</a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--item--link">Phòng</a>
+                            <a href="?role=client&mod=phong" class="header__nav--item--link">Phòng</a>
                         </li>
                         <li class="header__nav--item">
                             <a href="#" class="header__nav--item--link">Tin tức</a>
@@ -343,20 +339,8 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="header__search--box">
-                    <form action="" method="post">
-                        <input type="text" placeholder="Tìm kiếm ..." class="header__search--input">
-                        <button type="submit" class="header__search--box--search--icon--box">
-                            <i class="fa-solid fa-magnifying-glass header__search--box--search--icon"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="header__cart--box">
-                    <a href="">
-                        <i class="fa-sharp fa-solid fa-cart-shopping .header__cart--box--img"></i>
-                        <!-- <img src="https://tingtong.vn/assets/images/nav1.svg" alt="cart" class="header__cart--box--img"> -->
-                    </a>
-                </div>
+                
+              
                 <div class="header__account">
                  
                     <?php if(!isset($_SESSION['auth'])){?>

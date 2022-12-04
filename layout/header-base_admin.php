@@ -37,6 +37,14 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="public/images/logo.png" />
 	</head>
+	<style>
+		.brand{
+			height: 210px;
+		}
+		.brand-logo img{
+			width: 100%;
+		}
+	</style>
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">

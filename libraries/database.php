@@ -20,7 +20,7 @@ function db_query($query_string) {
     global $conn;
     $stmt = $conn->prepare($query_string);
     $stmt->execute();
-    $result = $conn->query($query_string);
+    // $result = $conn->query($query_string);   
     return $stmt;
 }
 

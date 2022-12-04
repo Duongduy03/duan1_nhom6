@@ -1,8 +1,4 @@
-<?php
 
-$user = get_auth();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +30,7 @@ $user = get_auth();
 <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .pass{
             border: none;
@@ -311,6 +308,47 @@ $user = get_auth();
 .type{
     outline: none;
 }
+.type1{
+    outline: none;
+    width: 200px;
+    background-color: #F8F8F8;
+    color: #383838;
+    border: none;
+    height: 50px;
+    padding: 0 15px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    line-height: 1.6;
+}
+.product__quantity--label{
+    width: 100px;
+}
+.product__detail--img {
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+.product__detail--img--box{
+    height: 500px;
+}
+.product__detail--info--box{
+    height: 500px;
+}
+.product__description--box{
+   line-height: 1.6;
+   margin-top: 20px;
+}
+.checked {
+  color: orange;
+}
+.user--ratting--value--box1 {
+    
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
     </style>
 </head>
 
@@ -330,7 +368,7 @@ $user = get_auth();
                             <a href="?role=client&mod=home" class="header__nav--item--link">Trang chủ</a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="#" class="header__nav--item--link">Phòng</a>
+                            <a href="?role=client&mod=phong" class="header__nav--item--link">Phòng</a>
                         </li>
                         <li class="header__nav--item">
                             <a href="#" class="header__nav--item--link">Tin tức</a>
@@ -340,20 +378,8 @@ $user = get_auth();
                         </li>
                     </ul>
                 </nav>
-                <div class="header__search--box">
-                    <form action="" method="post">
-                        <input type="text" placeholder="Tìm kiếm ..." class="header__search--input">
-                        <button type="submit" class="header__search--box--search--icon--box">
-                            <i class="fa-solid fa-magnifying-glass header__search--box--search--icon"></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="header__cart--box">
-                    <a href="">
-                        <i class="fa-sharp fa-solid fa-cart-shopping .header__cart--box--img"></i>
-                        <!-- <img src="https://tingtong.vn/assets/images/nav1.svg" alt="cart" class="header__cart--box--img"> -->
-                    </a>
-                </div>
+           
+                
                 <div class="header__account">
                  
                     <?php if(!isset($_SESSION['auth'])){?>
