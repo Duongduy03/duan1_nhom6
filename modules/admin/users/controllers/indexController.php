@@ -26,7 +26,7 @@ function createPostAction() {
         header('Location: ?role=admin&mod=category&action=create');
         die();
     }
-    create_category($name, $description);
+    create_user($name, $description);
     push_notification('success', ['Tạo mới danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=category');
 }
