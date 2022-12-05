@@ -25,7 +25,7 @@ function bookingAction(){
     load_view('booking',$data);
 }
 function bookingPostAction(){
-
+    $check= 0;
     $id = $_GET['id_room'];
     $bills = get_list_bill_id($id);
     $id_user = $_POST['id_user'];
@@ -33,6 +33,8 @@ function bookingPostAction(){
     $price = $_POST['price'];
     $loaiPhong_id = $_POST['loaiPhong_id'];
     // $slPhong = $_POST['slPhong'];
+    $time =time();
+    $today = date("Y-m-d",$time);
     $ngayDat = $_POST['ngayDat'];
     $ngayTra = $_POST['ngayTra'];
     $_SESSION['booking'] = [];
@@ -42,17 +44,33 @@ function bookingPostAction(){
     if(empty($ngayDat) || empty($ngayTra)){
         push_notification('danger', ['Bạn vui lòng nhập đủ thông tin'],'header');
         header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
+    }else if(strtotime($ngayDat) < strtotime($today)){
+        push_notification('danger', ['Ngày bắt đầu thuê không được nhỏ hơn thời gian hiện tại'],'header');
+        header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
     }else if(strtotime($ngayDat) > strtotime($ngayTra)){
         push_notification('danger', ['Ngày trả phải lớn hơn ngày đặt'],'header');
         header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
+    }else{
+        foreach ($bills as $bill) {
+            if( strtotime($bill['ngay_thue']) <= strtotime($ngayTra) && strtotime($ngayTra) < strtotime($bill['ngay_tra'])){
+                $check = 1;
+            }else if(strtotime($bill['ngay_thue']) < strtotime($ngayDat) && strtotime($ngayDat) <= strtotime($bill['ngay_tra'])){
+                $check = 1 ;
+            }else if(strtotime($ngayDat) < strtotime($bill['ngay_thue']) && strtotime($bill['ngay_thue']) < strtotime($ngayTra)&& strtotime($bill['ngay_tra']) ){
+                $check = 1;
+            }
+        }
+        if($check == 1){
+            push_notification('danger', ['Đã có người đặt phòng'],'header');
+            header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
+        }else if($check == 0 ){
+            create_bill($price, $loaiPhong_id, $ngayDat, $ngayTra,$id_user,$id_phong);
+            push_notification('primary',['Đặt phòng thành công'],'header');
+            header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
+        }
     }
-    else{
-        create_bill($price, $loaiPhong_id, $ngayDat, $ngayTra,$id_user,$id_phong);
-        push_notification('primary',['Đặt phòng thành công'],'header');
-        header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
-        // var_export($count_user);
-
-    }
+    
+    
     // show_array($_SESSION['booking']);
 }
 

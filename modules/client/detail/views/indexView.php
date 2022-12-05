@@ -153,10 +153,6 @@
         id && (document.getElementById(id).checked = !0)
         }
     </script>
-    <?php
-        show_array($bills);
-        die;
-    ?>
 </main>
 
 <?php get_footer() ?>
