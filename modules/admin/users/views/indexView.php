@@ -72,6 +72,7 @@
                                 <th title="Field #4">Số Điện thoại</th>
                                 <th title="Field #5">Mật khẩu</th>
                                 <th title="Field #6">Vai Trò</th>
+                                <th title="Field #6">Ảnh</th>
                                 <th title="Field #7">Hành Động</th>
                                 <th title="Field #8">Ngày tạo</th>
                                 
@@ -86,6 +87,7 @@
                                     <td><?php echo ($user['numberphone']) ?></td>
                                     <td><?php echo ($user['password']) ?></td>
                                     <td><?php echo ($user['role']) ?></td>
+                                    <td> <img src="public/images/<?= $user['thumb']?>" alt="" style="width:100px;"></td>
                                     
                                     <td>
                                         <span style="overflow: visible; position: relative; width: 125px;">

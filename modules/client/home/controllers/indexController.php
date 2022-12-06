@@ -6,8 +6,9 @@ function construct() {
 }
 
 function indexAction() {
+
     $data['rooms']= get_list_room(); 
-  
+    
  
 //     // $data['users']= get_auth();
 //     show_array(get_auth());
