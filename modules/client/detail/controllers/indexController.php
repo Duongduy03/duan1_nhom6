@@ -33,6 +33,7 @@ function bookingPostAction(){
     $price = $_POST['price'];
     $loaiPhong_id = $_POST['loaiPhong_id'];
     // $slPhong = $_POST['slPhong'];
+    $status = $_POST['status'];
     $time =time();
     $today = date("Y-m-d",$time);
     $ngayDat = $_POST['ngayDat'];
@@ -40,7 +41,10 @@ function bookingPostAction(){
     $_SESSION['booking'] = [];
     $array_booking = [$price, $loaiPhong_id, $ngayDat, $ngayTra,$id_user,$id_phong];
     array_push($_SESSION['booking'],$array_booking);
-    
+    // if($slPhong == 0){
+    //     push_notification('danger', ['Phòng đã được đặt hết'],'header');
+    //     header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
+    // }else
     if(empty($ngayDat) || empty($ngayTra)){
         push_notification('danger', ['Bạn vui lòng nhập đủ thông tin'],'header');
         header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
@@ -64,8 +68,8 @@ function bookingPostAction(){
             push_notification('danger', ['Đã có người đặt phòng'],'header');
             header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
         }else if($check == 0 ){
-            create_bill($price, $loaiPhong_id, $ngayDat, $ngayTra,$id_user,$id_phong);
-            push_notification('primary',['Đặt phòng thành công'],'header');
+            create_bill($price, $loaiPhong_id, $ngayDat, $ngayTra,$id_user,$id_phong,$status);
+            push_notification('primary',['Đơn bạn của bạn đang được xử lí'],'header');
             header("Location: ?role=client&mod=detail&action=booking&id_room=$id");
         }
     }

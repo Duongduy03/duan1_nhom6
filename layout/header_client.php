@@ -24,6 +24,152 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        .breadcrumb {
+            text-align: center;
+            margin-block: 40px 20px;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #121212;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: rgb(253, 74, 74);
+        }
+
+        .breadcrumb-title {
+            text-decoration: none;
+            color: rgb(157, 157, 157);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .category--list .category--item:hover .category--item--link {
+            background-color: gray;
+            transition: .5s;
+            color: white;
+            box-shadow: 0px 0px 10px 10px rgb(200, 200, 200,0.5);
+            border-radius: 10px;
+            display: block;
+        }
+      
+
+        .section {
+            display: grid;
+            grid-template-columns: 300px 1000px;
+            gap: 100px;
+        }
+
+        .section__col_3 {}
+
+        .section__col_3 h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 24px;
+
+        }
+
+        .category--list {
+            /* flex: 1; */
+        }
+
+        .category--item {
+            display: flex;
+            flex-direction: column-reverse;
+            line-height: 2   ;
+            margin-bottom: 10px;
+            /* border: 0.25px solid gray; */
+            /* border-radius: 20px; */
+
+
+        }
+
+        .category--item--link {
+            text-decoration: none;
+            color: #121212;
+            font-size: 16px;
+            font-weight: 600;
+     
+            padding: 10px;
+            display: block;
+        }
+
+        .section__col_9 {
+            flex: 9;
+
+        }
+
+        .product--list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -30px;
+        }
+
+        .product--card {
+            width: calc((100% / 3) - 30px);
+            height: auto;
+            margin-left: 30px;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .product--card:hover .product--img {
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            -o-transform: scale(1.2);
+        }
+
+        .product--card a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+        }
+
+        .product--img--box {
+            width: 100%;
+            max-height: 240px;
+            overflow: hidden;
+        }
+
+        .product--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+        }
+
+        .product--name {
+            padding: 10px;
+            flex: 1;
+            color: #121212;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .product--price {
+            padding: 10px;
+            color: rgb(253, 74, 74);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
         @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
         /*reset css*/
@@ -33,7 +179,7 @@
             padding: 0;
         }
 
-        
+
 
         h1 {
             font-size: 1.5em;
@@ -48,6 +194,7 @@
 
         #rating>input {
             display: none;
+            /* color: ; */
         }
 
         /*ẩn input radio - vì chúng ta đã có label là GUI*/
@@ -67,7 +214,7 @@
 
         /*0.5 ngôi sao*/
         #rating>label {
-            color: #ddd;
+            color: #543434;
             float: right;
         }
 
@@ -181,6 +328,13 @@
         }
 
         /* Customer */
+        .content {
+            padding-top: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
         .breadcrumb {
             text-align: center;
             margin-block: 40px 20px;
@@ -475,11 +629,11 @@
             </div>
             <nav class="header__nav">
                 <ul class="header__nav--list">
-                    <li class="header__nav--item active">
+                    <li class="header__nav--item ">
                         <a href="?role=client&mod=home" class="header__nav--item--link">Trang chủ</a>
                     </li>
                     <li class="header__nav--item">
-                        <a href="?role=client&mod=phong" class="header__nav--item--link">Phòng</a>
+                        <a href="?role=client&mod=phong&action=loadviewPhong" class="header__nav--item--link">Phòng</a>
                     </li>
                     <li class="header__nav--item">
                         <a href="#" class="header__nav--item--link">Tin tức</a>

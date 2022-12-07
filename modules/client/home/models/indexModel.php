@@ -4,7 +4,7 @@ function get_list_users() {
     return $result;
 }
 function get_list_room(){
-    $result = db_fetch_array("SELECT * FROM `phong` ");
+    $result = db_fetch_array("SELECT * FROM `phong` limit 9 ");
     return $result;
 }
 function get_one_user($id){

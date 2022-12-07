@@ -31,7 +31,7 @@ function createPostAction()
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $thumb = $_FILES["fileToUpload"]["name"];
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $allowedTypes = ['jpg', 'png'];
+    $allowedTypes = ['jpg', 'png','jpeg','webp'];
     
     if (empty($thumb)) {
         push_notification('danger', ['Vui lòng tải hình ảnh lên'],'thumb');

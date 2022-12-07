@@ -8,17 +8,26 @@
         <div class="content__product--detail row row-12">
             <div class="product__detail--img--box col-6" style="">
                 <img src="public/uploads/<?= $room_detail['thumb'] ?>" alt="" class="product__detail--img">
+                <div class="product__description--box">
+                        <label class="product__description--label">Mô tả phòng:</label>
+                        <p class="product_description">
+                            <?= $room_detail['description'] ?>
+                        </p>
+                    </div>
             </div>
+            
 
             <div class="product__detail--info--box col-6">
                 <p class="product__name">
+                    Tên phòng: 
                     <?= $room_detail['title'] ?>
                 </p>
                 <p class="product__price">
+                    Giá phòng: 
                     <?= $room_detail['price'] ?><span>$</span>
                 </p>
                 <div class="product__quantity--box">
-                    <label class="product__quantity--label">Số lượng:</label>
+                    <label class="product__quantity--label">Số lượng còn:</label>
                     <p class="product__quantity">
                         <?= $room_detail['count'] ?>
                     </p>
@@ -26,11 +35,25 @@
 
                 <div class="product__buy--form">
 
-                    <div class="product__buy--value--box">
-                        <label class="product__buy--value--title"> Ngày đặt </label>
-                        <input type="date" min="1" max="" class="product__date">
+                    
+
+                    <div class="product__description--box">
+                        <label class="product__description--label">Loại phòng:</label>
+                        <p class="product_description">
+                            <?= $room_detail['name'] ?>
+                        </p>
                     </div>
-                    <?php if (isset($_SESSION['auth']['role']) && $_SESSION['auth']['role'] == 1) { ?>
+                    <div class="product__description--box">
+                        <label class="product__description--label">Mô tả loại phòng:</label>
+                        <p class="product_description">
+                            <?= $room_detail['descripition'] ?>
+                          
+                        </p>
+                    </div>
+                 
+                   
+                    
+                    <?php if (isset($_SESSION['auth']) && $_SESSION['auth']['role'] == 1) { ?>
                         <div class="product__buy--function">
                             <a href="?role=client&mod=detail&action=booking&id_room=<?= $room_detail['id'] ?>">
                                 <button class="product__buy--function--buy--now">Đặt Phòng
@@ -41,15 +64,15 @@
 
                         </div>
                     <?php } else { ?>
+                        <div class="product__buy--function">
+                           
+
+
+
+                        </div>
 
                     <?php } ?>
-
-                    <div class="product__description--box">
-                        <label class="product__description--label">Mô tả phòng:</label>
-                        <p class="product_description">
-                            <?= $room_detail['description'] ?>
-                        </p>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -97,7 +120,7 @@
             <?php endforeach ?>
         </div>
         <?php if (isset($_SESSION['auth'])) { ?>
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="" enctype="multipart/form-data" method="post" style="display: flex; flex-direction: column;">
                 <div class="user--ratting--value--box1">
                     <div>Đánh giá :</div>
                     <div id="rating">
@@ -130,12 +153,21 @@
                 </div>
                 <input type="hidden" name="id_user" value="<?= $_SESSION['auth']['id'] ?>" />
                 <input type="hidden" name="id_phong" value="<?= $room_detail['id'] ?>" />
-                <a href="?role=client&mod=detail&action=comment&id_room =<?= $room_detail['id'] ?>">
-                    <button type="submit" class="submit-comment" name="submit-comment">Gửi</button>
+                <a href="?role=client&mod=detail&action=comment&id_room =<?= $room_detail['id'] ?>" ">
+                    <button type="submit" class="btn btn-primary" name="submit-comment">Gửi</button>
                 </a>
             </form>
         <?php } else { ?>
-            <a href="?role=client&mod=auth">Bạn Phải đăng nhập/đăng ký để Bình Luận về phòng bên Khách sạn House Hotel</a>
+           
+           
+           <div class="dangnhap" style="font-size: 24px;color: rgb(255, 0, 0, 0.6);">
+           Bạn Phải đăng nhập/đăng ký để Bình Luận và đặt phòng bên Khách sạn House Hotel!
+           
+           <a href="?role=client&mod=auth">
+       Đăng nhập ngay
+       </a>
+           </div>     
+               
         <?php } ?>
     </div>
 

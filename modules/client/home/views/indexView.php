@@ -64,6 +64,14 @@
         margin: 0 auto;
         padding: 150px 0px;
     }
+    .show_product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 32px;
+    padding: 50px;
+    width: 1500px;
+    margin: auto;
+}
     .content-detail{
         background-color: rgb(226, 226, 226);
         
@@ -310,6 +318,80 @@
 .type{
     outline: none;
 }
+.counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 50px;
+
+    /* overflow: hidden; */
+}
+.menu_services{
+    width: 135px;
+    text-align: center;
+    float: left;
+    margin-right: 50px;
+}
+.box_icon_services{
+    color: #c6c6c6;
+    text-align: center;
+    font-size: 60px;
+    line-height: 60px;
+    position: relative;
+    top: 0px;
+    transition: 0.2s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    margin-bottom: 30px;
+}
+.menu_services a {
+    text-decoration: none;
+}
+.menu_services a strong{
+    display: block;
+    font-weight: 400;
+    margin-top: 14px;
+    color: #433e3e;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    transition: 0.3s;
+    transform: translate(0px,0px);
+
+}
+.menu_services .box_icon_services :hover {
+    transform: translate(0px,10px);
+    color: #121212;
+}
+
+.menu_services :hover strong {
+    color: red;
+}
+.hotel_location{
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+   margin: auto;
+}
+
+.contact{
+    width: 100%;
+    margin-left: 100px;
+    line-height: 2;
+}
+.heading1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.address{
+    margin-bottom: 20px;
+    
+}
     </style>
 </head>
 
@@ -329,7 +411,7 @@
                             <a href="?role=client&mod=home" class="header__nav--item--link">Trang chủ</a>
                         </li>
                         <li class="header__nav--item">
-                            <a href="?role=client&mod=phong" class="header__nav--item--link">Phòng</a>
+                            <a href="?role=client&mod=phong&action=loadviewPhong" class="header__nav--item--link">Phòng</a>
                         </li>
                         <li class="header__nav--item">
                             <a href="#" class="header__nav--item--link">Tin tức</a>
@@ -524,6 +606,129 @@
 
                     </div>
 
+                    <div class="hotel-services" >
+                    <div class="hotel-services__title title_box" style="margin-top: 90px;">
+                        <b></b>
+                        <h3 class="title_product_box">Dịch Vụ</h3>
+                        <b></b>
+                    </div>
+                    <h2 class="title_box" style="margin-top: -18px;" >(Bao Gồm Trong Giá)</h2>
+                    <ul class="counter">
+                        <li class="menu_services">
+                            <a href="#">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-mug-saucer"></i>
+                                </span>
+                                <br>
+                                <strong>Cà Phê Tối & Sáng </strong>
+                            </a>
+                        </li>
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-tv"></i>
+                                </span>
+                                <br>
+                                <strong> Ti Vi </strong>
+                            </a>
+                        </li>
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-map"></i>
+                                </span>
+                                <br>
+                                <strong>Bản Đồ Thành Phố</strong>
+                            </a>
+                        </li>
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </span>
+                                <br>
+                                <strong>Wifi Miễn Phí</strong>
+                            </a>
+                        </li>
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-phone"></i>
+                                </span>
+                                <br>
+                                <strong>Điện Thoại</strong>
+                            </a>
+                        </li>
+                        </ul>
+                        <ul class="counter">
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <!-- <i class="fa-solid fa-mug-saucer"></i> -->
+                                    <!-- <i class="fa-regular fa-suitcase-rolling"></i> -->
+                                    <i class="fa-solid fa-person-walking-luggage"></i>
+                                </span>
+                                <br>
+                                <strong>Tủ Để Hành Lý
+                                </strong>
+                            </a>
+                        </li>
+                   
+                    
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </span>
+                                <br>
+                                <strong>Nhà Hàng</strong>
+                            </a>
+                        </li>
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                    <!-- <i class="fa-solid fa-mug-saucer"></i> -->
+                                </span>
+                                <br>
+                                <strong>Nụ Cười Của Chúng Tôi</strong>
+                            </a>
+                        </li>
+                      
+                        <li class="menu_services">
+                            <a href="">
+                                <span class="box_icon_services">
+                                    <!-- <i class="fa-solid fa-mug-saucer"></i> -->
+                                    <i class="fa-regular fa-notes-medical"></i>+
+                                    <!-- <i class="fa-regular fa-face-smile"></i> -->
+                                </span>
+                                <br>
+                                <strong>Tủ Thuốc Y Tế</strong>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                </div>
+                <div class="location_hotel">
+                    <div class="hotel-services__title title_box" style="margin-top: 90px;">
+                        <b></b>
+                        <h3 class="title_product_box">Vị Trí</h3>
+                        <b></b>
+                    </div>
+                    <div class="hotel_location">
+                       
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.593297168288!2d105.72882541485477!3d21.048953185987475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454593e86fd5b%3A0x93d430573c4ff812!2zMTEwIE5nLiA4MCDEkC4gWHXDom4gUGjGsMahbmcsIFh1w6JuIFBoxrDGoW5nLCBIw6AgTuG7mWksIDEwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1670337010471!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                       <div class="contact">
+                           <h1 class="heading1"> Địa điểm</h1>
+                           <p class="address">
+                               Khách sạn Hiện đại này nằm ở Phố Ave New York và cách Quảng trường Thời đại vài bước chân. Khách sạn cung cấp bữa sáng kiểu lục địa miễn phí hàng ngày, Wi-Fi miễn phí và đồ giải khát 24 giờ.
+                           </p>
+                           <p><i class='bx bx-map' style='color:#e82727' ></i>     110 ngõ 80 Xuân Phương Nam Từ Liêm Hà Nội</p>
+                           <p><i class='bx bx-phone' style='color:#e82727'  ></i>     0787127502</p>
+                           <p><i class='bx bxl-gmail' style='color:#e82727' ></i>     son@gmail.com</p>
+                       </div>
+                   </div>
 
                 </div>
 

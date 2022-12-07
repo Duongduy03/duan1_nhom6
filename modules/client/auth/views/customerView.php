@@ -426,11 +426,11 @@
                                 </a>
                             </div>
                             <div class="info--menu__function--box">
-                                <a href="" class="info--menu__function--link">
+                                <a href="?role=client&mod=bill&id_user=<?= $user['id']?>" class="info--menu__function--link">
                                     <div class="info--menu__function--img--box">
                                         <img src="public/images/cart_shop.jpg" alt="" class="info--menu__function--img">
                                     </div>
-                                    <p class="info--menu__function--label">Giỏ hàng</p>
+                                    <p class="info--menu__function--label">Quản Lý đặt phòng</p>
                                 </a>
                             </div>
                             <div class="info--menu__function--box">

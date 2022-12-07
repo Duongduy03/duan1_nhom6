@@ -62,6 +62,13 @@
 
                         </p>
                     </div>
+                    <div class="product__quantity--box">
+                   
+                        <p class="product__quantity">
+                            <input type="text" hidden value="1" class="type1" name="status">
+
+                        </p>
+                    </div>
 
 
 

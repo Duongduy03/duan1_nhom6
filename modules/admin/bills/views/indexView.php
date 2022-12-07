@@ -26,8 +26,23 @@
                             <span class="d-block text-muted pt-2 font-size-sm">Danh sách các hóa đơn có trên hệ thống</span>
                         </h3>
                     </div>
-                    <div class="card-toolbar"></div>
                     
+                    <div class="card-toolbar">
+                    <!--begin::Button-->
+                    <a href="?role=admin&mod=bills&action=lammoi" class="btn btn-primary font-weight-bolder">
+                        <span class="svg-icon svg-icon-md">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <circle fill="#000000" cx="9" cy="15" r="6" />
+                                    <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>Làm mới</a>
+                    <!--end::Button-->
+                </div>
                 </div>
                 <div class="card-body">
                     <!--begin: Search Form-->
@@ -52,10 +67,22 @@
                     <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                         <thead>
                             <tr>
-                                <th title="Field #1">ID Hóa Đơn</th>
-                                <th title="Field #2">ID Người đặt</th>
-                                <th title="Field #3">ID Phòng cần đặt</th>
-                                <th title="Field #4">Ngày đặt</th>
+                                <th title="Field #1">ID hóa đơn</th>
+                               
+                                <th title="Field #2">Thông tin người đặt</th>
+                                
+                              
+                              
+                                <th title="Field #4">Ngày đặt phòng</th>
+                                <th title="Field #4">Ngày trả phòng</th>
+                               
+                                <th title="Field #4">Tổng tiền</th>
+                               
+                                <th title="Field #4">Trạng thái</th> 
+                                <th title="Field #4">Chức năng</th> 
+                                <th title="Field #2">Thông tin phòng</th>
+
+                                <!-- <th title="Field #4">   </th>  -->
                                 <!-- <th title="Field #5">Mật khẩu</th>
                                 <th title="Field #6">Vai Trò</th>
                                 <th title="Field #7">Hành Động</th>
@@ -67,20 +94,42 @@
                             <?php foreach ($bills as $bill) : ?>
                                 <tr>
                                     <td><?php echo ($bill['id_bill']) ?></td>
-                                    <td><?php echo ($bill['id_user']) ?></td>
-                                    <td><?php echo ($bill['id_prd']) ?></td>
-                                    <td><?php echo ($bill['create_at']) ?></td>   
-                                    <!-- <td>
+                                    <td>
+                                      
+                                        Tên:<?php echo ($bill['full_name']) ?> <br>
+                                        Mail:<?php echo ($bill['email']) ?> <br>
+                                        SĐT: <?php echo ($bill['numberphone']) ?>
+                                </td>
+                                    <td><?php echo ($bill['ngay_thue']) ?></td>
+                                    <td><?php echo ($bill['ngay_tra']) ?></td>   
+                                    <td><?php echo ($bill['tong_tien']) ?>VNĐ</td>   
+                                    <td >
+
+                                   
+                                                        
+                                    <?php if($bill['status'] == 1){?>
+                        <div class="btn btn-warning">
+                                Đang xử lý
+                        </div>
+                        
+                        <a href="?role=admin&mod=bills&action=update&id_bill=<?php echo $bill['id_bill'] ?>"  >
+                            <button class="btn btn-primary" style="width: 95.72px;">
+                                Cập nhật
+                            </button>
+                        </a>
+                        <?php }else if($bill['status'] == 2){?>
+                            <button class="btn btn-primary">
+                            Đặt thành công
+                            </button>
+                            
+                            <?php }?>
+                                            
+                                       
+                                </td>   
+
+                                    <td>
                                         <span style="overflow: visible; position: relative; width: 125px;">
-                                            <a href="?role=admin&mod=users&action=update&id_user=<?php echo $user['id'] ?>" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                            <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "></path>
-                                                            <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"></rect>
-                                                        </g>
-                                                    </svg>
-                                                </span>
-                                            </a>
+                                            
                                             <a href="?role=admin&mod=users&action=delete&id_user=<?php echo $user['id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xoá danh mục: <?php echo $user['full_name'] ?> không? Hành động sẽ xoá danh mục và toàn bộ sản phẩm có trong danh mục này.')" class="btn btn-sm btn-clean btn-icon" title="Delete"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24"></rect>
@@ -90,8 +139,13 @@
                                             </svg> </span> </a>
                                         </span>
                                     </td> -->
-                                    <!-- <td><?php echo ($user['created_at']) ?></td>
-                                    <td><?php echo $category['description'] ?></td> -->
+                                    <td>
+                                        Id phòng: <?php echo ($bill['id_phong']) ?> <br>
+                                        Loại phòng: <?php echo ($bill['name']) ?> <br>
+                                        Tên phòng: <?php echo ($bill['title']) ?> <br>
+                                        Giá phòng trên ngày: <?php echo ($bill['price']) ?>VNĐ <br>
+                                </td>   
+                                 
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
