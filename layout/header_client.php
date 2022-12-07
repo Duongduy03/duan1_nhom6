@@ -171,7 +171,19 @@
         }
 
         @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
+            body::-webkit-scrollbar{
+    height: 8px;
+    width: 8px;
+    
+  }
+  body::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, #868483, #000);
+    border-radius: 100rem;
+  }
+  body::-webkit-scrollbar-track {
+    border-radius: 100rem;
+    background-color: white;
+  }
         /*reset css*/
         div,
         label {
@@ -217,7 +229,6 @@
             color: #543434;
             float: right;
         }
-
         /*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
         /*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
         #rating>input:checked~label,
@@ -254,7 +265,7 @@
         }
 
         .user__ratted--info {
-            margin-bottom: 10px;
+            margin-bottom: 30px;
 
         }
 

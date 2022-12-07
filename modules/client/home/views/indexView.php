@@ -557,7 +557,7 @@
                     </div>
                     <div class="show_product">
                         <?php foreach($rooms as $room):?>
-
+                          
                         <div class="card 1">
                             <div class="basicInfor">
                                 <div class="title">
@@ -577,11 +577,13 @@
                                 <div class="addcart">
                                     <i class="fa-solid fa-basket-shopping"></i>
                                 </div>
+                               
                                 <div class="view_detail">
-                                    <a href="?role=client&mod=detail&action=detail&id_room=<?= $room['id']?>"> <button class="btn_view_detail">
+                                    <a href="?role=client&mod=detail&action=detail&id_room=<?= $room['id']?>&id_user=<?= $room['id_user']?>"> <button class="btn_view_detail">
                                             Xem Thêm <i class="fa-solid fa-right-to-bracket"></i>
                                         </button> </a>
                                 </div>
+                               
 
                             </div>
                             <div class="more">
@@ -595,6 +597,7 @@
                                 <div class="price"><?= $room['price']?> $</div>
                             </div>
                         </div>
+                      
                         <?php endforeach ?>
                     
                         

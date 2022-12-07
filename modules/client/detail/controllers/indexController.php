@@ -11,6 +11,8 @@ function indexAction(){
 
 function detailAction(){
     $id = $_GET['id_room'];
+    // $id_user = $_GET['id_user'];
+    // $data['user'] = get_one_user($id_user);
     $data['room_detail']= get_one_room($id);
     $data['comment'] = get_list_comment($id);
     

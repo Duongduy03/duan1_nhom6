@@ -1,4 +1,4 @@
-<?php get_header('', 'Tạo mới tài khoản') ?>
+<?php get_header('', 'Chỉnh sửa thông tin khách hàng') ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -6,7 +6,7 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Tạo mới danh mục sản phẩm</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Chỉnh sửa thông tin khách hàng</h5>
                 <!--end::Page Title-->
             </div>
             <!--end::Info-->
@@ -21,29 +21,29 @@
             <!--begin::Card-->
             <div class="card card-custom gutter-b example example-compact">
                 <div class="card-header">
-                    <h3 class="card-title">Form thông tin tạo khách hàng mới</h3>
+                    <h3 class="card-title">Form chỉnh sửa thông tin khách hàng</h3>
                 </div>
                 <!--begin::Form-->
                 <form method="POST" action="" enctype="multipart/form-data">
                     <div class="card-body">
                         <div class="form-group">
                             <label>Họ và tên</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nhập vào họ tên" />
+                            <input type="text" name="name" class="form-control" placeholder="Nhập vào họ tên" value="<?= $update_user['full_name']?>"/>
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" placeholder="Nhập vào email" />
+                            <input type="text" name="email" class="form-control" placeholder="Nhập vào email" value="<?= $update_user['email']?>" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">
                             <label>Số điện thoại</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Nhập vào số điện thoại" />
+                            <input type="text" name="phone" class="form-control" placeholder="Nhập vào số điện thoại" value="<?= $update_user['numberphone']?>" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">
                             <label>Mật khẩu</label>
-                            <input type="text" name="password" class="form-control" placeholder="Nhập vào mật khẩu" />
+                            <input type="text" name="password" class="form-control" placeholder="Nhập vào mật khẩu" value="<?= $update_user['password']?>" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
                         <div class="form-group">
@@ -61,7 +61,7 @@
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Thay đổi">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
                                         <input type="file" name="thumb" accept=".png, .jpg, .jpeg" />
-                                        <input type="hidden" name="thumb_remove" />
+                                        <input type="hidden" name="thumb_remove" value="<?= $update_user['thumb']?>" />
                                     </label>
 
                                     <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Xoá ảnh đại diện">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary mr-2">Tạo mới</button>
+                        <button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
                         <button type="reset" class="btn btn-secondary">Làm lại</button>
                         <a href="?role=admin&mod=category" class="btn btn-default">Quay về</a>
                     </div>

@@ -1,5 +1,5 @@
 <?php get_header('', 'Trang chủ');
-
+    $id_user = $_GET['id_user'];
 ?>
 <main class="content-detail">
 
@@ -88,16 +88,18 @@
 
                     <div class="user__ratted--info">
                         <div class="user--ratted--info--link">
-                            <div class="user--ratted--img--box" style="">
+                            
 
                                 <img src="public/uploads/<?= $valueBinhLuanSanPham['thumb'] ?>" alt="" class="user--ratted--img" style="width: 50px;
     height: 50px;
     border-radius: 50px;">
-                            </div>
-                            <div class="db2">
+                           
+                            <div  iv class="db2">
                                 <div class="db">
                                     <p class="user--ratted--name"><?= $valueBinhLuanSanPham['full_name'] ?></p>
                                     <p class="user--ratted--name"><?= $valueBinhLuanSanPham['create_at'] ?></p>
+                                   
+                                    
                                 </div>
                                 <div class="user--ratted--star">
                                     <?php
@@ -110,12 +112,12 @@
 
                         </div>
                     </div>
-                    <div class="user--ratted">
+                    
 
                         <div class="user--ratted--comment--box">
                             <p class="user--ratted--comment"><?= $valueBinhLuanSanPham['description'] ?></p>
                         </div>
-                    </div>
+                  
                 </div>
             <?php endforeach ?>
         </div>
