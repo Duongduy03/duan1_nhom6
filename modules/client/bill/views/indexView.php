@@ -549,7 +549,9 @@
 
     <?php endif ?>
     <div class="content" style="padding: 150px 0px; width: 1200px; margin: auto;">
-
+    <div class="breadcrumb">
+                <p class="breadcrumb-title"><a href="./index.php">Trang chủ</a> - Thông tin đặt phòng</p>
+            </div>        
         <table class="table" border="0">
             <thead class="table-light">
                 <tr>
